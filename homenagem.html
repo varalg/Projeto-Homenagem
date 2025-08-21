@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Homenagem - Dia dos Namorados</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Sua Homenagem ❤️</h1>
+
+    <form oninput="atualizarPreview()">
+      <input type="text" id="titulo" placeholder="Digite o título da homenagem" />
+      <textarea id="mensagem" rows="6" placeholder="Escreva aqui sua mensagem..."></textarea>
+      <input type="file" id="uploadMidia" accept="image/*,video/*" />
+      <input type="url" id="spotifyLink" placeholder="Cole aqui o link da música do Spotify" />
+    </form>
+
+    <button onclick="salvarHomenagem()">Salvar Homenagem</button>
+
+    <div id="preview">
+      <div id="previewTitulo"></div>
+      <p id="previewMensagem"></p>
+      <div id="previewMidia"></div>
+      <div id="textoSpotify"></div>
+      <div id="previewSpotify"></div>
+    </div>
+  </div>
+
+  <div id="qrSection" class="container">
+    <h2>Compartilhe sua homenagem</h2>
+    <input type="url" id="urlHomenagem" placeholder="Link da homenagem" />
+    <div class="button-group">
+      <button onclick="gerarQRCode()">Gerar QR Code</button>
+      <button onclick="copiarLink()">Copiar Link</button>
+      <button onclick="baixarHTML()">Baixar Homenagem</button>
+    </div>
+    <div id="qrcode" style="margin-top: 20px;"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const tipo = new URLSearchParams(window.location.search).get("tipo");
+    if (tipo) {
+      const h1 = document.querySelector("h1");
+      h1.textContent = `Homenagem ${tipo.charAt(0).toUpperCase() + tipo.slice(1)} ❤️`;
+    }
+  </script>
+</body>
+</html>

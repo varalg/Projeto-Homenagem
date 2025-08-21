@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Início - Homenagem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body class="pagina-inicial">
+  <div class="pagina-com-borda">
+    <div class="inicio-container">
+      <h1>🌼 Crie Sua Homenagem 🌼</h1>
+      <p>Qual o tipo de homenagem que você quer fazer?</p>
+
+      <div class="conteudo-homenagem">
+        <div class="botoes-homenagem">
+          <button onclick="irParaHomenagem('romantica')">Romântica</button>
+          <button onclick="irParaHomenagem('amizade')">Amizade</button>
+          <button onclick="irParaHomenagem('familia')">Família</button>
+          <button onclick="irParaHomenagem('personalizada')">Outra</button>
+        </div>
+        
+        <div class="imagem-exemplo">
+          <img src="exemplo.jpg" alt="Exemplo de Homenagem" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function irParaHomenagem(tipo) {
+      window.location.href = `homenagem.html?tipo=${tipo}`;
+    }
+  </script>
+</body>
+</html>
